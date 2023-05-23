@@ -1,3 +1,4 @@
+import configparser
 import sys
 
 from actuator.pump_script import pump_water
@@ -9,6 +10,8 @@ python -m actuator <command> <parameters>
 
 
 def main():
+    # get config file
+    config = configparser.ConfigParser()
     # get first main parameter
     command = sys.argv[1]
     # based on the first parameter of main, execute the corresponding actuator script
@@ -16,8 +19,10 @@ def main():
         case "pump":
             # second parameter is the time in seconds
             sec = int(sys.argv[2])
+            # get GPIO pin from config.ini file
+            output_pin = config["GPIO_PINS"]["pump_pin"]
             # execute the pump script for the given time
-            pump_water(sec)
+            pump_water(sec, output_pin)
 
         case _:  # default case
             print("Invalid command")
