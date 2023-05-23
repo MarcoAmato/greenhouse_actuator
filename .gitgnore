@@ -1,0 +1,22 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+target/
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/.idea/
+/.env
+*.ini
+
+# Virtual environment
+.venv/
+.conda/
+
+# VSCode
+.vscode/
+
+# Caches
+__pycache__/
