@@ -5,7 +5,7 @@ from actuator.pump_script import pump_water
 
 usage = """
 Usage:
-python -m actuator <command> <parameters>
+python3 -m actuator <command> <parameters>
 """
 
 
@@ -17,16 +17,20 @@ def main():
     # based on the first parameter of main, execute the corresponding actuator script
     match command:
         case "pump":
-            # second parameter is the time in seconds
-            sec = int(sys.argv[2])
-            # get GPIO pin from config.ini file
-            output_pin = config["GPIO_PINS"]["pump_pin"]
-            # execute the pump script for the given time
-            pump_water(sec, output_pin)
+            water_pump_actuator(config)
 
         case _:  # default case
             print("Invalid command")
             print(usage)
+
+
+def water_pump_actuator(config):
+    # second parameter of main is the time in seconds
+    sec = int(sys.argv[2])
+    # get GPIO pin from config.ini file
+    output_pin = config["GPIO_PINS"]["pump_pin"]
+    # execute the pump script for the given time
+    pump_water(sec, output_pin)
 
 
 if "__name__" == "__main__":
@@ -35,6 +39,6 @@ if "__name__" == "__main__":
     parameter of main.
     
     Usage:
-    python -m actuator <command> <parameters>
+    python3 -m actuator <command> <parameters>
     """
     main()

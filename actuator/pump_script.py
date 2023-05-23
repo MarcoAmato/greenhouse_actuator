@@ -8,7 +8,7 @@ def pump_water(sec, pump_pin):
     GPIO.setup(pump_pin, GPIO.OUT)
 
     try:
-        # turn the pump off and on for 0.25 seconds to prime the pump
+        # turn the pump off for 0.25 seconds
         GPIO.output(pump_pin, GPIO.LOW)
         sleep(0.25)
 
