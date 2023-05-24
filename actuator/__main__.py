@@ -5,7 +5,7 @@ from actuator.pump_script import pump_water
 
 usage = """
 Usage:
-python3 -m actuator <command> <parameters>
+python -m actuator <command> <parameters>
 """
 
 
@@ -15,13 +15,12 @@ def main():
     # get first main parameter
     command = sys.argv[1]
     # based on the first parameter of main, execute the corresponding actuator script
-    match command:
-        case "pump":
-            water_pump_actuator(config)
+    if command == "pump":
+        water_pump_actuator(config)
+    else:
+        print("Invalid command")
+        print(usage)
 
-        case _:  # default case
-            print("Invalid command")
-            print(usage)
 
 
 def water_pump_actuator(config):
