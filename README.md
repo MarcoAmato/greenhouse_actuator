@@ -5,8 +5,13 @@ This is the code run on the Raspberry Pi actuator.
 The host machine calls the main script with a command and eventual arguments.
 Each command activates a different actuator.
 
+## Setup
+### Dependencies
+- Python 3.10
+- RPi.GPIO
+
 ## Commands
 ### Pump
-Usage: `python3 -m actuator pump <seconds>`
+Usage: `python3.10 -m actuator pump <seconds>`
 
 Turns on the pump for the specified number of seconds.
