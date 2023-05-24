@@ -12,6 +12,7 @@ python -m actuator <command> <parameters>
 def main():
     # get config file
     config = configparser.ConfigParser()
+    config.read("config.ini")
     # get first main parameter
     command = sys.argv[1]
     # based on the first parameter of main, execute the corresponding actuator script
