@@ -3,6 +3,8 @@ from time import sleep
 
 
 def pump_water(sec, pump_pin):
+    print("Pumping water for {} seconds...".format(sec))
+
     # set GPIO mode and set up the pump pin
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(pump_pin, GPIO.OUT)
@@ -18,6 +20,8 @@ def pump_water(sec, pump_pin):
 
         # turn the pump off
         GPIO.cleanup()
+
+        print("Done pumping water.")
 
     except KeyboardInterrupt:
         # stop pump when ctrl-c is pressed
