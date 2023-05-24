@@ -22,7 +22,6 @@ def main():
         print(usage)
 
 
-
 def water_pump_actuator(config):
     # second parameter of main is the time in seconds
     sec = int(sys.argv[2])
@@ -32,7 +31,7 @@ def water_pump_actuator(config):
     pump_water(sec, output_pin)
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     """
     This main is executed from the host machine. It executes the corresponding actuator script based on the first
     parameter of main.
