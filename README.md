@@ -6,7 +6,7 @@ The host machine calls the main script with a command and eventual arguments.
 Each command activates a different actuator.
 
 ## Commands
-### Pump
-Usage: `python3 -m actuator pump <seconds>`
+### water
+Usage: `python3 -m actuator water <GPIO_pin> <seconds>`
 
-Turns on the pump for the specified number of seconds.
+Turns on the water pump connected to `GPIO_pin` for `seconds` seconds.

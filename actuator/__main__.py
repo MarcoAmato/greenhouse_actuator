@@ -10,35 +10,25 @@ python -m actuator <command> <parameters>
 
 
 def main():
-    config = initialize_config()
     # get first main parameter
     command = sys.argv[1]
     # based on the first parameter of main, execute the corresponding actuator script
-    if command == "pump":
-        water_pump_actuator(config)
+    if command == "water":
+        water_pump_actuator()
     else:
         print("Invalid command")
         print(usage)
 
 
-def initialize_config():
-    # get config file
-    config = configparser.ConfigParser()
-    # check if config file exists
-    if not config.read("config.ini"):
-        print("Config file not found. Please create a config.ini file in the root directory following the structure "
-              "of config.ini.example.")
-        sys.exit(1)
-    return config
+def water_pump_actuator():
+    # second parameter of main is the GPIO pin of the water pump
+    water_pump_pin = int(sys.argv[3])
 
+    # third parameter of main is the time in seconds
+    sec = int(sys.argv[3])
 
-def water_pump_actuator(config):
-    # second parameter of main is the time in seconds
-    sec = int(sys.argv[2])
-    # get GPIO pin from config.ini file
-    output_pin = int(config["GPIO_PINS"]["pump_pin"])
     # execute the pump script for the given time
-    pump_water(sec, output_pin)
+    pump_water(sec, water_pump_pin)
 
 
 if __name__ == "__main__":
