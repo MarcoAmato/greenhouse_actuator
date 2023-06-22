@@ -19,6 +19,7 @@ def pump_water(sec, pump_pin):
             GPIO.output(pump_pin, GPIO.HIGH)
             sleep(1)
             GPIO.output(pump_pin, GPIO.LOW)
+            sleep(1)
 
         # turn the pump off
         GPIO.cleanup()
