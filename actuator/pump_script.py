@@ -15,8 +15,10 @@ def pump_water(sec, pump_pin):
         sleep(0.25)
 
         # turn the pump on for the given time
-        GPIO.output(pump_pin, GPIO.HIGH)
-        sleep(sec)
+        for x in range(0, sec):
+            GPIO.output(pump_pin, GPIO.HIGH)
+            sleep(1)
+            GPIO.output(pump_pin, GPIO.LOW)
 
         # turn the pump off
         GPIO.cleanup()
