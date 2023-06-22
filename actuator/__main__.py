@@ -22,7 +22,7 @@ def main():
 
 def water_pump_actuator():
     # second parameter of main is the GPIO pin of the water pump
-    water_pump_pin = int(sys.argv[3])
+    water_pump_pin = int(sys.argv[2])
 
     # third parameter of main is the time in seconds
     sec = int(sys.argv[3])
